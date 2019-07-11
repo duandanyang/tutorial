@@ -14,7 +14,7 @@ def snippet_list(request, format=None):
     if request.method == 'GET':
         snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data)    # 渲染成客户端请求的内容类型
 
     elif request.method == 'POST':
         serializer = SnippetSerializer(data=request.data)
